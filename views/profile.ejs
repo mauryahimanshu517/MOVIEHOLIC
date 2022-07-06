@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/profile.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form id="form" action="/upload" enctype="multipart/form-data" method="post">
+    <input id="btn" style="display: none;" type="file" name="images" placeholder="choose file">
+  </form>
+  <div class="image">
+    <img src="./images/1/<%=data.images%>" alt="">
+    <button>Upload Photo</button>
+
+  </div>
+  <div class="lines">
+    <h4>Personal Information</h4>
+    <input type="text" value="<%=data.username%>">
+    <input type="text" value="<%=data.email%>">
+    <input type="text" value="<%=data.password%>">
+    <div class="edit_back">
+      <div class="back">
+        <a href="/back">
+          <button>
+            <i class="ri-arrow-left-s-line"></i>
+            <p>Back</p>
+          </button>
+      </div>
+      </a>
+    
+        <div class="edit">
+          <a href="/edit">
+            <button>
+              <a href="/edit/<%=data.id%>"><i class="ri-pencil-fill"></i></a>
+              <p>Edit</p>
+            </button>
+          </a>
+        </div>
+        
+    </div>
+    
+  </div>
+
+  <script>
+    var a = document.querySelector(".image")
+    a.addEventListener("click", function () {
+      document.querySelector("#btn").click();
+    });
+
+    document.querySelector("#btn").addEventListener("change", function () {
+      document.querySelector("#form").submit()
+    })
+
+
+  </script>
+</body>
+
+</html>
